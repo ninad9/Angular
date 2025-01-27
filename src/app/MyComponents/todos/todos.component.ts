@@ -31,10 +31,15 @@ constructor(){
       sno: 3,
       title: "Title 3",
       desc: "Desc 3",
-      active: false
+      active: true
     }
   ]
 }
+  deleteTodo(todo: Todo){
+    console.log(todo);
+    const index = this.todos.indexOf(todo);
+    this.todos.splice(index, 1);
+  }
 
   ngOnInit(): void {
    // throw new Error('Method not implemented.');
