@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from '../../Todo';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { TodoItemComponent } from '../todo-item/todo-item.component';
+import { AddTodoComponent } from '../add-todo/add-todo.component';
 
 @Component({
   selector: 'app-todos',
-  imports: [NgFor, TodoItemComponent],
+  imports: [NgFor, TodoItemComponent, AddTodoComponent, NgIf],
   templateUrl: './todos.component.html',
   styleUrl: './todos.component.css'
 })
@@ -39,6 +40,11 @@ constructor(){
     console.log(todo);
     const index = this.todos.indexOf(todo);
     this.todos.splice(index, 1);
+  }
+
+  addTodo(todo:Todo){
+    console.log(todo);
+    this.todos.push(todo);
   }
 
   ngOnInit(): void {
