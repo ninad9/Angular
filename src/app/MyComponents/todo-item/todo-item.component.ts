@@ -8,9 +8,8 @@ import { Todo } from '../../Todo';
   styleUrl: './todo-item.component.css'
 })
 export class TodoItemComponent implements OnInit {
-  @Input()
-  todo!: Todo; 
-  
+  @Input() todo!: Todo; 
+  @Input() i! : number;
   @Output() todoDelete: EventEmitter<Todo> = new EventEmitter();  
   @Output() todoCheckbox: EventEmitter<Todo> = new EventEmitter();
   
