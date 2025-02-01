@@ -8,18 +8,23 @@ import { Todo } from '../../Todo';
   styleUrl: './todo-item.component.css'
 })
 export class TodoItemComponent implements OnInit {
-  @Input()  //Input Decorator
+  @Input()
   todo!: Todo; 
+  
   @Output() todoDelete: EventEmitter<Todo> = new EventEmitter();  
-  constructor(){  
-  }
+  @Output() todoCheckbox: EventEmitter<Todo> = new EventEmitter();
+  
+  constructor(){}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
   
   onClick(todo: Todo): void {
     this.todoDelete.emit(todo);
     console.log("OnClick is triggered")
   }
-
+  
+  onCheckboxClick(todo:Todo){
+    console.log(todo);
+    this.todoCheckbox.emit(todo);
+  }
 }

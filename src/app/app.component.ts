@@ -9,7 +9,5 @@ import { TodosComponent } from './MyComponents/todos/todos.component';
 })
 export class AppComponent {
   title = 'todo-list';
-  constructor(){
-
-  }
+  constructor(){}
 }
