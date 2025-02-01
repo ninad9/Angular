@@ -1,9 +1,10 @@
 import { Component, NgModule } from '@angular/core';
-import { TodosComponent } from './MyComponents/todos/todos.component';
+
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [TodosComponent],
+  imports: [RouterOutlet, RouterLink],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

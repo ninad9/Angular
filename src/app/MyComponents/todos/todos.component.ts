@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from '../../Todo';
-import { NgClass, NgFor, NgIf } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { TodoItemComponent } from '../todo-item/todo-item.component';
 import { AddTodoComponent } from '../add-todo/add-todo.component';
 
@@ -10,33 +10,33 @@ import { AddTodoComponent } from '../add-todo/add-todo.component';
   templateUrl: './todos.component.html',
   styleUrl: './todos.component.css'
 })
-export class TodosComponent implements OnInit{
+export class TodosComponent implements OnInit {
   localItems: string;
   todos: Todo[];
 
-  constructor(){
+  constructor() {
     this.localItems = localStorage.getItem("todos") || "";
-    if(this.localItems == ""){
+    if (this.localItems == "") {
       this.todos = []
-    }else{
+    } else {
       this.todos = JSON.parse(this.localItems);
-    }     
+    }
   }
 
-  deleteTodo(todo: Todo){
+  deleteTodo(todo: Todo) {
     console.log(todo);
     const index = this.todos.indexOf(todo);
     this.todos.splice(index, 1);
     localStorage.setItem("todos", JSON.stringify(this.todos));
   }
 
-  addTodo(todo:Todo){
+  addTodo(todo: Todo) {
     console.log(todo);
     this.todos.push(todo);
     localStorage.setItem("todos", JSON.stringify(this.todos));
   }
 
-  toggleTodo(todo:Todo){
+  toggleTodo(todo: Todo) {
     console.log(todo);
     const index = this.todos.indexOf(todo);
     this.todos[index].active = !this.todos[index].active;
